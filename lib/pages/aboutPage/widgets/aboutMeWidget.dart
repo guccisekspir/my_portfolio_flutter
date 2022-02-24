@@ -26,15 +26,27 @@ class AboutMeWidget extends StatelessWidget {
           SizedBox(
               width: cardWidth * 0.7,
               height: cardHeight * 0.2,
-              child: AutoSizeText(title,
-                  style:
-                      GoogleFonts.poppins(color: themeHelper.onBackground, fontWeight: FontWeight.bold, fontSize: 30))),
-          SizedBox(
-              width: cardWidth * 0.7,
-              height: cardHeight * 0.79,
-              child: AutoSizeText(description,
-                  style:
-                      GoogleFonts.poppins(color: themeHelper.onBackground, fontWeight: FontWeight.w400, fontSize: 15)))
+              child: Center(
+                child: AutoSizeText(title,
+                    style: GoogleFonts.poppins(
+                        color: themeHelper.onBackground, fontWeight: FontWeight.bold, fontSize: 30)),
+              )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: ConstrainedBox(
+                constraints: BoxConstraints(minWidth: cardWidth * 0.7, maxHeight: cardHeight * 0.6),
+                child: AutoSizeText(description,
+                    style: GoogleFonts.poppins(color: themeHelper.onBackground, fontWeight: FontWeight.w400))),
+          ),
+          const Spacer(),
+          Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                  padding: const EdgeInsets.only(bottom: 2.0, right: 4.0),
+                  child: SizedBox(
+                      height: cardHeight * 0.1,
+                      child: Text("Swipe for others -->",
+                          style: GoogleFonts.poppins(fontWeight: FontWeight.w600, color: themeHelper.onBackground)))))
         ],
       ),
     );
