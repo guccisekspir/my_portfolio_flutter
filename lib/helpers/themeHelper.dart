@@ -5,7 +5,7 @@ class ThemeHelper {
   Color backgroundColor = const Color(0XFF142850);
   Color surfaceColor = const Color(0XFF27496D);
   // Color lightSurfaceColor = const Color(0XFF303030);
-  Color primaryColor = const Color(0XFF00A8CC);
+  Color primaryColor = const Color(0XFF00ffea);
   Color secondaryColor = const Color(0XFFFF4C29);
 
   Color onBackground = const Color(0XFFFAF9F6);

@@ -42,6 +42,7 @@ dependencies:
 
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
+  flutter_native_splash: ^2.0.5
 
 
   #flutter_easyloading: ^3.0.3
