@@ -66,7 +66,7 @@ class AwardsPage extends StatelessWidget {
                         "With my team, we win the 24-hour hackathon organized by the Ministry of Youth and Sports, where more than 5000 teams applied!",
                     image: "assets/logos/emblem1.png"),
                 AwardContainer(
-                    title: "KYK Hackathon 1th Place",
+                    title: "KYK Hackathon 2th Place",
                     description:
                         "We came 2nd with my team in the 24-hour hackathon organized by the Kredi Yurtlar Kurumu!",
                     image: "assets/logos/emblem2.png"),
