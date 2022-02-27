@@ -92,59 +92,55 @@ class AboutPage extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(
-                                      height: sizeHelper.height! * 0.1,
+                                    const Spacer(),
+                                    ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                          maxHeight: sizeHelper.height! * 0.1, maxWidth: sizeHelper.width! * 0.4),
                                       child: AutoSizeText(
                                         "Hi",
                                         maxLines: 1,
                                         minFontSize: 1,
                                         style: GoogleFonts.poppins(
-                                            fontSize: sizeHelper.height! * 0.075,
-                                            fontWeight: FontWeight.bold,
-                                            color: themeHelper.onBackground),
+                                            fontWeight: FontWeight.bold, color: themeHelper.onBackground),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: sizeHelper.height! * 0.11,
+                                    ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                          maxHeight: sizeHelper.height! * 0.1, maxWidth: sizeHelper.width! * 0.4),
                                       child: AutoSizeText(
                                         "I'm Cagri",
                                         maxLines: 1,
                                         minFontSize: 1,
                                         style: GoogleFonts.poppins(
-                                            fontSize: sizeHelper.height! * 0.075,
-                                            fontWeight: FontWeight.bold,
-                                            color: themeHelper.onBackground),
+                                            fontWeight: FontWeight.bold, color: themeHelper.onBackground),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: sizeHelper.height! * 0.1,
-                                      width: sizeHelper.width! * 0.4,
+                                    ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                          maxHeight: sizeHelper.height! * 0.1, maxWidth: sizeHelper.width! * 0.4),
                                       child: AutoSizeText(
-                                        "Mobile Application Developer",
+                                        sizeHelper.isSmallScreen ? "Mobile App. Dev." : "Mobile Application Developer",
                                         maxLines: 1,
                                         minFontSize: 1,
                                         style: GoogleFonts.poppins(
-                                            fontSize: sizeHelper.height! * 0.04,
-                                            fontWeight: FontWeight.w300,
-                                            color: themeHelper.secondaryColor),
+                                            fontWeight: FontWeight.w300, color: themeHelper.secondaryColor),
                                       ),
                                     ),
                                     Align(
                                       alignment: Alignment.centerLeft,
-                                      child: SizedBox(
-                                        height: sizeHelper.height! * 0.3,
-                                        width: sizeHelper.width! * 0.4,
-                                        child: Swiper(
-                                          itemBuilder: (BuildContext context, int index) {
-                                            return aboutMeWidgets[index];
-                                          },
-                                          itemCount: aboutMeWidgets.length,
-                                          itemWidth: sizeHelper.width! * 0.4,
-                                          itemHeight: sizeHelper.height! * 0.3,
-                                          layout: SwiperLayout.TINDER,
-                                        ),
+                                      child: Swiper(
+                                        itemBuilder: (BuildContext context, int index) {
+                                          return aboutMeWidgets[index];
+                                        },
+                                        itemCount: aboutMeWidgets.length,
+                                        itemWidth: sizeHelper.width! * 0.4,
+                                        itemHeight: sizeHelper.isSmallScreen
+                                            ? sizeHelper.height! * 0.4
+                                            : sizeHelper.height! * 0.3,
+                                        layout: SwiperLayout.TINDER,
                                       ),
-                                    )
+                                    ),
+                                    const Spacer(),
                                   ],
                                 ),
                               ),

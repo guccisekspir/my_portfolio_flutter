@@ -24,7 +24,7 @@ class NavBarWidget extends StatelessWidget {
         children: [
           SizedBox(
             height: navBarHeight,
-            width: sizeHelper.width! * 0.05,
+            width: sizeHelper.isSmallScreen ? sizeHelper.width! * 0.1 : sizeHelper.width! * 0.05,
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Image.asset(
@@ -34,18 +34,21 @@ class NavBarWidget extends StatelessWidget {
             ),
           ),
           ConstrainedBox(
-            constraints:
-                BoxConstraints(maxHeight: navBarHeight, minHeight: navBarHeight, maxWidth: sizeHelper.width! * 0.1),
+            constraints: BoxConstraints(
+                maxHeight: navBarHeight,
+                minHeight: navBarHeight,
+                maxWidth: sizeHelper.isSmallScreen ? sizeHelper.width! * 0.15 : sizeHelper.width! * 0.1),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: AutoSizeText("Şekspir",
                     textAlign: TextAlign.left,
+                    maxLines: 1,
                     style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w300,
-                        color: themeHelper.primaryColor,
-                        fontSize: sizeHelper.height! * 0.03)),
+                      fontWeight: FontWeight.w300,
+                      color: themeHelper.primaryColor,
+                    )),
               ),
             ),
           ),
@@ -59,21 +62,26 @@ class NavBarWidget extends StatelessWidget {
                 return GestureDetector(
                   onTap: currentItem.onPressed,
                   child: SizedBox(
-                    width: sizeHelper.width! * 0.1,
+                    width: sizeHelper.isSmallScreen ? sizeHelper.width! * 0.12 : sizeHelper.width! * 0.1,
+                    height: sizeHelper.isSmallScreen
+                        ? (sizeHelper.height! * 0.1) / navbarItems.length
+                        : sizeHelper.height! * 0.1,
                     child: Center(
                         child: AutoSizeText(currentItem.title,
                             textAlign: TextAlign.center,
+                            softWrap: false,
+                            minFontSize: 3,
                             style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w200,
-                                color: activeIndex == index ? themeHelper.secondaryColor : themeHelper.onBackground,
-                                fontSize: sizeHelper.height! * 0.02))),
+                              fontWeight: FontWeight.w200,
+                              color: activeIndex == index ? themeHelper.secondaryColor : themeHelper.onBackground,
+                            ))),
                   ),
                 );
               },
-              scrollDirection: Axis.horizontal,
+              scrollDirection: sizeHelper.isSmallScreen ? Axis.vertical : Axis.horizontal,
               itemCount: navbarItems.length,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: sizeHelper.isSmallScreen ? const PageScrollPhysics() : const NeverScrollableScrollPhysics(),
             ),
           ),
           const Spacer(),

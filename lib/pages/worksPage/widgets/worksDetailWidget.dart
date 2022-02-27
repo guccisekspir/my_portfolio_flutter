@@ -113,19 +113,15 @@ class WorkDetailsWidget extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Container(
-                          height: sizeHelper.height! * 0.3,
-                          width: sizeHelper.width! * 0.4,
-                          child: Swiper(
-                            index: -1,
-                            itemBuilder: (BuildContext context, int index) {
-                              return workDetails.detailsCards.reversed.toList()[index];
-                            },
-                            itemCount: workDetails.detailsCards.length,
-                            itemWidth: sizeHelper.width! * 0.4,
-                            itemHeight: sizeHelper.height! * 0.3,
-                            layout: SwiperLayout.TINDER,
-                          ),
+                        child: Swiper(
+                          index: -1,
+                          itemBuilder: (BuildContext context, int index) {
+                            return workDetails.detailsCards.reversed.toList()[index];
+                          },
+                          itemCount: workDetails.detailsCards.length,
+                          itemWidth: sizeHelper.width! * 0.4,
+                          itemHeight: sizeHelper.isSmallScreen ? sizeHelper.height! * 0.4 : sizeHelper.height! * 0.3,
+                          layout: SwiperLayout.TINDER,
                         ),
                       )
                     ],
