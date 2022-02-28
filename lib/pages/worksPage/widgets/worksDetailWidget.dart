@@ -33,17 +33,18 @@ class WorkDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeHelper themeHelper = ThemeHelper();
     SizeHelper sizeHelper = SizeHelper();
-    return Container(
+    return SizedBox(
         height: (sizeHelper.height! - sizeHelper.height! * 0.1) * 0.87,
         width: sizeHelper.width,
         child: Column(
           children: [
+            const Spacer(),
             Row(
               children: [
                 SizedBox(width: sizeHelper.width! * 0.075),
-                Container(
+                SizedBox(
                   height: sizeHelper.height! * 0.7,
-                  width: (sizeHelper.height! * 0.5) * 0.8,
+                  width: sizeHelper.width! * 0.4,
                   //color: Colors.amber,
                   child: Stack(children: [
                     GlowedContainer(
@@ -53,7 +54,7 @@ class WorkDetailsWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: Container(
+                        child: SizedBox(
                           height: sizeHelper.height! * 0.7,
                           width: sizeHelper.width! * 0.27,
                           child: Image.asset(
@@ -67,14 +68,17 @@ class WorkDetailsWidget extends StatelessWidget {
                   ]),
                 ),
                 const Spacer(),
-                Container(
+                SizedBox(
                   height: sizeHelper.height! * 0.7,
                   width: sizeHelper.width! * 0.4,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: sizeHelper.height! * 0.1,
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minWidth: sizeHelper.width! * 0.4,
+                            maxWidth: sizeHelper.width! * 0.4,
+                            maxHeight: sizeHelper.height! * 0.1),
                         child: AutoSizeText(
                           workDetails.name,
                           maxLines: 1,
@@ -85,9 +89,11 @@ class WorkDetailsWidget extends StatelessWidget {
                               color: themeHelper.onBackground),
                         ),
                       ),
-                      SizedBox(
-                        height: sizeHelper.height! * 0.11,
-                        width: sizeHelper.width! * 0.4,
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minWidth: sizeHelper.width! * 0.4,
+                            maxWidth: sizeHelper.width! * 0.4,
+                            maxHeight: sizeHelper.height! * 0.1),
                         child: AutoSizeText(
                           workDetails.secondTitle,
                           maxLines: 1,
@@ -98,9 +104,11 @@ class WorkDetailsWidget extends StatelessWidget {
                               color: themeHelper.onBackground),
                         ),
                       ),
-                      SizedBox(
-                        height: sizeHelper.height! * 0.1,
-                        width: sizeHelper.width! * 0.4,
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minWidth: sizeHelper.width! * 0.4,
+                            maxWidth: sizeHelper.width! * 0.4,
+                            maxHeight: sizeHelper.height! * 0.1),
                         child: AutoSizeText(
                           workDetails.motto,
                           maxLines: 1,

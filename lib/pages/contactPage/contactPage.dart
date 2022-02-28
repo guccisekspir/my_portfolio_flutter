@@ -9,7 +9,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 class ContactPage extends StatelessWidget {
   final VoidCallback func;
-  final currentIndex;
+  final int currentIndex;
   const ContactPage({Key? key, required this.func, required this.currentIndex}) : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class ContactPage extends StatelessWidget {
           func();
         }
 
-        debugPrint('Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
+        debugPrint('Widget ${visibilityInfo.key} is $visiblePercentage% visible');
       },
       child: SizedBox(
         height: (sizeHelper.height! - sizeHelper.height! * 0.1),
@@ -64,31 +64,34 @@ class ContactPage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {},
                   child: Container(
-                    height: sizeHelper.height! * 0.1,
-                    width: sizeHelper.width! * 0.5,
+                    height: sizeHelper.isSmallScreen ? sizeHelper.height! * 0.05 : sizeHelper.height! * 0.1,
+                    width: sizeHelper.isSmallScreen ? sizeHelper.width! * 0.6 : sizeHelper.width! * 0.2,
                     decoration: BoxDecoration(
                         color: themeHelper.primaryColor.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: themeHelper.primaryColor)),
                     child: Row(
                       children: [
-                        Icon(Icons.mail, color: themeHelper.primaryColor, size: sizeHelper.height! * 0.1),
-                        const Spacer(),
-                        ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: sizeHelper.width! * 0.4),
-                          child: AutoSizeText(
-                            "cagri@sekspir.net",
-                            maxLines: 1,
-                            minFontSize: 1,
-                            wrapWords: false,
-                            stepGranularity: 0.1,
-                            presetFontSizes: [20, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-                            overflow: TextOverflow.fade,
-                            style: GoogleFonts.poppins(
-                                color: themeHelper.primaryColor, fontWeight: FontWeight.w600, fontSize: 50),
+                        Icon(Icons.mail,
+                            color: themeHelper.primaryColor,
+                            size: sizeHelper.isSmallScreen ? sizeHelper.height! * 0.05 : sizeHelper.height! * 0.1),
+                        SizedBox(
+                          height: sizeHelper.isSmallScreen ? sizeHelper.height! * 0.05 : sizeHelper.height! * 0.1,
+                          width: (sizeHelper.isSmallScreen
+                              ? sizeHelper.width! * 0.6
+                              : sizeHelper.width! * 0.2 -
+                                  (sizeHelper.isSmallScreen ? sizeHelper.height! * 0.05 : sizeHelper.height! * 0.1)),
+                          child: Center(
+                            child: AutoSizeText(
+                              "cagri@sekspir.net",
+                              maxLines: 1,
+                              minFontSize: 1,
+                              wrapWords: false,
+                              overflow: TextOverflow.fade,
+                              style: GoogleFonts.poppins(color: themeHelper.primaryColor, fontWeight: FontWeight.w600),
+                            ),
                           ),
-                        ),
-                        const Spacer(),
+                        )
                       ],
                     ),
                   ),

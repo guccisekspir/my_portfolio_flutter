@@ -23,17 +23,18 @@ class AboutMeWidget extends StatelessWidget {
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), gradient: LinearGradient(colors: gradient)),
       child: Column(
         children: [
-          ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: cardHeight * 0.2, minWidth: cardWidth),
+          SizedBox(
+              width: cardWidth * 0.9,
+              height: sizeHelper.isSmallScreen ? cardHeight * 0.05 : cardHeight * 0.1,
               child: AutoSizeText(title,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(color: themeHelper.onBackground, fontWeight: FontWeight.bold))),
-          ConstrainedBox(
-            constraints:
-                BoxConstraints(minWidth: cardWidth * 0.9, maxWidth: cardWidth * 0.9, maxHeight: cardHeight * 0.65),
+          SizedBox(
+            width: cardWidth * 0.9,
+            height: sizeHelper.isSmallScreen ? cardHeight * 0.8 : cardHeight * 0.65,
             child: AutoSizeText(
               description,
-              minFontSize: 6,
+              minFontSize: 4,
               style: GoogleFonts.poppins(color: themeHelper.onBackground, fontWeight: FontWeight.w400),
             ),
           ),

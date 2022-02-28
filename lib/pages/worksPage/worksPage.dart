@@ -1,19 +1,15 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/consts/gradientList.dart';
 import 'package:my_portfolio/helpers/sizeHelper.dart';
 import 'package:my_portfolio/helpers/themeHelper.dart';
 import 'package:my_portfolio/pages/aboutPage/widgets/aboutMeWidget.dart';
-import 'package:my_portfolio/pages/aboutPage/widgets/glowedContainer.dart';
 import 'package:my_portfolio/pages/worksPage/widgets/bottomNavWidget.dart';
 import 'package:my_portfolio/pages/worksPage/widgets/worksDetailWidget.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class WorksPage extends StatelessWidget {
   final VoidCallback func;
-  final currentIndex;
+  final int currentIndex;
 
   const WorksPage({Key? key, required this.func, required this.currentIndex}) : super(key: key);
 
@@ -22,23 +18,7 @@ class WorksPage extends StatelessWidget {
     ThemeHelper themeHelper = ThemeHelper();
     SizeHelper sizeHelper = SizeHelper();
     PageController pageController = PageController();
-    List<AboutMeWidget> aboutMeWidgets = [
-      AboutMeWidget(
-          gradient: gradientLinks[4],
-          title: "What is Smoody?",
-          description:
-              "Smoody is an application that offers a jukebox service for venues. Smoody allows users to choose the next song and also helps them socialize."),
-      AboutMeWidget(
-          gradient: gradientLinks[3],
-          title: "My role in Smoody",
-          description:
-              "I'm the owner of Smoody's idea and I also develop mobile applications. In addition to this, I am also interested in the business model and business plans. Besides, I am the pair coder of the backend side and the supervisor of the design side."),
-      AboutMeWidget(
-          gradient: gradientLinks[2],
-          title: "Technologies I use",
-          description:
-              "An application that uses a lot of Socket technology due to its Smoody backend architecture. Socket connections and management in the application dominate. Apart from that, I used the BLoC structure for the state management. There are more than 20 BLoC structures in my application. Apart from this, I also used a Firebase service such as Firebase Cloud Messaging, Inapp Messaging. Since it is a dynamic application, we frequently used Rive technology within the application."),
-    ];
+
     return VisibilityDetector(
       key: const Key('works-page'),
       onVisibilityChanged: (visibilityInfo) {
@@ -47,7 +27,7 @@ class WorksPage extends StatelessWidget {
           func();
         }
 
-        debugPrint('Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
+        debugPrint('Widget ${visibilityInfo.key} is $visiblePercentage% visible');
       },
       child: SizedBox(
         height: sizeHelper.height! - sizeHelper.height! * 0.1,
@@ -60,6 +40,7 @@ class WorksPage extends StatelessWidget {
                 allowImplicitScrolling: true,
                 scrollDirection: Axis.horizontal,
                 controller: pageController,
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   WorkDetailsWidget(
                     workDetails: WorkDetails(
@@ -175,7 +156,7 @@ class WorksPage extends StatelessWidget {
               padding: const EdgeInsets.all(4.0),
               child: SizedBox(
                 height: (sizeHelper.height! - sizeHelper.height! * 0.1) * 0.1,
-                width: sizeHelper.width! * 0.5,
+                width: sizeHelper.width!,
                 child: Row(
                   children: [
                     const Spacer(),

@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                     title: "About",
                     onPressed: () {
                       scrollController.animateTo(((sizeHelper.height! - (sizeHelper.height! * 0.1)) * 0),
-                          duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
 
                       setState(() {
                         activeIndex = 0;
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                     title: "Works",
                     onPressed: () {
                       scrollController.animateTo(((sizeHelper.height! - (sizeHelper.height! * 0.1)) * 1),
-                          duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
 
                       setState(() {
                         activeIndex = 1;
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                     title: "Awards",
                     onPressed: () {
                       scrollController.animateTo(((sizeHelper.height! - (sizeHelper.height! * 0.1)) * 2),
-                          duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
 
                       setState(() {
                         activeIndex = 2;
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                     title: "Why Shakespeare",
                     onPressed: () {
                       scrollController.animateTo(((sizeHelper.height! - (sizeHelper.height! * 0.1)) * 3),
-                          duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
 
                       setState(() {
                         activeIndex = 3;
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                     title: "Contact",
                     onPressed: () {
                       scrollController.animateTo(((sizeHelper.height! - (sizeHelper.height! * 0.1)) * 4),
-                          duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
 
                       setState(() {
                         activeIndex = 4;

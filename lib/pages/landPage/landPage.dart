@@ -10,8 +10,8 @@ class LandPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeHelper themeHelper = ThemeHelper(fetchedContext: context);
-    SizeHelper sizeHelper = SizeHelper(fetchedContext: context);
+    ThemeHelper(fetchedContext: context);
+    SizeHelper(fetchedContext: context);
     return const HomePage();
   }
 }

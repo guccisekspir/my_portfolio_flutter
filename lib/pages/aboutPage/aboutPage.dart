@@ -63,7 +63,7 @@ class AboutPage extends StatelessWidget {
           func();
         }
 
-        debugPrint('Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
+        debugPrint('Widget ${visibilityInfo.key} is $visiblePercentage% visible');
       },
       child: Container(
         height: sizeHelper.height!,
@@ -101,7 +101,11 @@ class AboutPage extends StatelessWidget {
                                         maxLines: 1,
                                         minFontSize: 1,
                                         style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.bold, color: themeHelper.onBackground),
+                                            fontSize: sizeHelper.isSmallScreen
+                                                ? sizeHelper.height! * 0.02
+                                                : sizeHelper.height! * 0.04,
+                                            fontWeight: FontWeight.bold,
+                                            color: themeHelper.onBackground),
                                       ),
                                     ),
                                     ConstrainedBox(
@@ -112,7 +116,11 @@ class AboutPage extends StatelessWidget {
                                         maxLines: 1,
                                         minFontSize: 1,
                                         style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.bold, color: themeHelper.onBackground),
+                                            fontSize: sizeHelper.isSmallScreen
+                                                ? sizeHelper.height! * 0.02
+                                                : sizeHelper.height! * 0.04,
+                                            fontWeight: FontWeight.bold,
+                                            color: themeHelper.onBackground),
                                       ),
                                     ),
                                     ConstrainedBox(
@@ -122,8 +130,13 @@ class AboutPage extends StatelessWidget {
                                         sizeHelper.isSmallScreen ? "Mobile App. Dev." : "Mobile Application Developer",
                                         maxLines: 1,
                                         minFontSize: 1,
+                                        wrapWords: false,
                                         style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.w300, color: themeHelper.secondaryColor),
+                                            fontSize: sizeHelper.isSmallScreen
+                                                ? sizeHelper.height! * 0.02
+                                                : sizeHelper.height! * 0.04,
+                                            fontWeight: FontWeight.w300,
+                                            color: themeHelper.secondaryColor),
                                       ),
                                     ),
                                     Align(

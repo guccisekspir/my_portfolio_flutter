@@ -19,9 +19,9 @@ class AwardsPage extends StatelessWidget {
           func();
         }
 
-        debugPrint('Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
+        debugPrint('Widget ${visibilityInfo.key} is $visiblePercentage% visible');
       },
-      child: Container(
+      child: SizedBox(
         height: (sizeHelper.height! - sizeHelper.height! * 0.1),
         width: sizeHelper.width,
         child: Column(

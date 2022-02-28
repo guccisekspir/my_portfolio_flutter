@@ -15,7 +15,7 @@ class AwardContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeHelper themeHelper = ThemeHelper();
     SizeHelper sizeHelper = SizeHelper();
-    return Container(
+    return SizedBox(
       height: sizeHelper.height! * 0.3,
       width: sizeHelper.width! * 0.3,
       child: Stack(
